@@ -1,0 +1,26 @@
+{
+  "name": "floorbase",
+  "version": "0.0.1",
+  "description": "freebase data as a parquet file",
+  "keywords": [
+    "freebase"
+  ],
+  "homepage": "https://github.com/spencermountain/floorbase#readme",
+  "bugs": {
+    "url": "https://github.com/spencermountain/floorbase/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spencermountain/floorbase.git"
+  },
+  "license": "MIT",
+  "author": "spencermountain",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "shelljs": "^0.10.0"
+  }
+}
