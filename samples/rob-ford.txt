@@ -1,0 +1,276 @@
+<http://rdf.freebase.com/ns/g.11bc822mkv>       <http://rdf.freebase.com/ns/government.political_party_tenure.politician>       <http://rdf.freebase.com/ns/m.05bdcg>      .
+<http://rdf.freebase.com/ns/m.0z9f4w8>  <http://rdf.freebase.com/ns/people.sibling_relationship.sibling>        <http://rdf.freebase.com/ns/m.05bdcg>   .
+<http://rdf.freebase.com/ns/m.01h57r>   <http://rdf.freebase.com/ns/location.location.people_born_here> <http://rdf.freebase.com/ns/m.05bdcg>   .
+<http://rdf.freebase.com/ns/base.type_ontology.physically_instantiable> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.05bdcg>      .
+<http://rdf.freebase.com/ns/m.0h0k2g5>  <http://rdf.freebase.com/ns/common.image.appears_in_topic_gallery>      <http://rdf.freebase.com/ns/m.05bdcg>   .
+<http://rdf.freebase.com/ns/m.0bs7w2m>  <http://rdf.freebase.com/ns/government.election.winner> <http://rdf.freebase.com/ns/m.05bdcg>   .
+<http://rdf.freebase.com/ns/base.type_ontology.agent>   <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.05bdcg>   .
+<http://rdf.freebase.com/ns/m.0crmyfb>  <http://rdf.freebase.com/ns/common.image.appears_in_topic_gallery>      <http://rdf.freebase.com/ns/m.05bdcg>   .
+<http://rdf.freebase.com/ns/m.0whj5fw>  <http://rdf.freebase.com/ns/government.political_party_tenure.politician>       <http://rdf.freebase.com/ns/m.05bdcg>      .
+<http://rdf.freebase.com/ns/people.person>      <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.05bdcg>   .
+<http://rdf.freebase.com/ns/m.0k6lmgj>  <http://rdf.freebase.com/ns/people.sibling_relationship.sibling>        <http://rdf.freebase.com/ns/m.05bdcg>   .
+<http://rdf.freebase.com/ns/m.0z9dt7q>  <http://rdf.freebase.com/ns/people.person.children>     <http://rdf.freebase.com/ns/m.05bdcg>   .
+<http://rdf.freebase.com/ns/common.topic>       <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.05bdcg>   .
+<http://rdf.freebase.com/ns/base.type_ontology.animate> <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.05bdcg>   .
+<http://rdf.freebase.com/ns/m.0k22cbx>  <http://rdf.freebase.com/ns/education.education.student>        <http://rdf.freebase.com/ns/m.05bdcg>   .
+<http://rdf.freebase.com/ns/m.0z9f3s2>  <http://rdf.freebase.com/ns/people.sibling_relationship.sibling>        <http://rdf.freebase.com/ns/m.05bdcg>   .
+<http://rdf.freebase.com/ns/m.0z9fc56>  <http://rdf.freebase.com/ns/people.person.parents>      <http://rdf.freebase.com/ns/m.05bdcg>   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/fi/Rob_Ford"        .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.topic_equivalent_webpage>      <http://ja.wikipedia.org/wiki/index.html?curid=2882302>    .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/people.person.education>    <http://rdf.freebase.com/ns/m.0k22cbx>  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.fa>      "$0631$0627$0628_$0641$0648$0631$062F"  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.de>      "Rob_Ford"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.description>   "Robert Bruce \"Rob\" Ford, född 28 maj 1969 i Etobicoke i Toronto i Ontario, är en kanadensisk politiker och affärsman. Han var Torontos 64:e borgmästare. Hans tid som borgmästare har kantats av en rad skandaler, bland annat har det framkommit att han rökt crack."@sv  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/zh-cn_id/3183415"   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.name>   "Rob Ford"@fr   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.topic_equivalent_webpage>      <http://it.wikipedia.org/wiki/index.html?curid=4737560>    .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.name>   "롭 포드"@ko    .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.fa_title>        "$0631$0627$0628_$0641$0648$0631$062F"  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/no_title/Rob_Ford"  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.description>   "Robert Bruce Ford, conocido simplemente como Rob Ford, es un político y empresario canadiense. Actualmente es el alcalde de Toronto, habiendo sido elegido como tal en las elecciones de 2010 y posesionado el primero de diciembre de ese año.\nAntes de ser alcalde, Ford fue concejal por el distrito de Toronto de Etobicoke. Fue elegido por primera vez al concejo municipal en las elecciones municipales del año 2000, y fue re-elegido a su curul en 2003 y nuevamente en 2006. Actualmente, su hermano, Doug Ford, Jr., es un concejal de Toronto. El padre de Ford, Doug Ford Sr., también fue un político y fue miembro del Parlamento Provincial de Ontario. La familia de Ford es dueña de Deco Labels, una empresa multinacional de etiquetas e impresión con sede en Etobicoke.\nDurante su carrera política, Ford ha sido objeto de varias controversias laborales y personales y procesos judiciales, incluyendo un juicio por conflicto de intereses por el cual casi pierde su cargo. En 2013, se convirtió en el objeto de alegaciones de abuso de sustancias, las cuales fueron reportadas en detalle por la prensa nacional e internacional."@es     .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/de_title/Rob_Ford"  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/ru/$0424$043E$0440$0434$002C_$0420$043E$0431"       .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/no_id/1235438"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/people.person.nationality>  <http://rdf.freebase.com/ns/m.0d060g>   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/fi_id/1136502"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/people.person.sibling_s>    <http://rdf.freebase.com/ns/m.0k6lmgj>  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.description>   "Роб Форд — канадский политик, на муниципальных выборах в Торонто в 2010 году был избран мэром Торонто и сменил на этом посту Дэвида Миллера.\nДо своего избрания в качестве мэра Торонто, Форд был членом городского совета в Этобико. Впервые в члены городского совета он был избран на муниципальных выборах Торонто в 2000 году, затем он был переизбран в совет в 2003, а потом в 2006. Его брат, Дуг Форд Младший, сейчас является членом совета, как и отец, Дуг Форд, также входивший ранее в совет.\nЗа свою политическую карьеру Форд не раз находился в центре ряда личных и связанных с работой скандалов и судебных разбирательств, которые почти лишили его должности. В 2013 году Форд стал предметом обвинений в наркомании, которые широко освещались местной и международной прессой. Скандал вызвала попавшая в прессу видеозапись на которой мужчина, похожий на Форда, курит крэк, а также называет лидера Либеральной партии Канады Джастина Трюдо «педиком». Сам мэр сначала категорически отрицал свою причастность к этому видео и к употреблению наркотиков, но позже признался в употреблении крэка. По его словам, он курил крэк, но не является наркозависимым."@ru       .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/people.person.sibling_s>    <http://rdf.freebase.com/ns/m.0z9f4w8>  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/es_title/Rob_Ford"  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.description>   "羅柏特·福特，加拿大政治人物和商人，現任安大略省多倫多市議會北怡陶碧谷第二選區市議員。他曾於2010年至2014年間擔任多倫多第64任市長，在此之前於2000年首度當選北怡陶碧谷第二選區市議員，並於2003年和2006年的兩屆市選中連任。他為了競選市長而騰空的市議員席位於2010年市選中由兄長德格·福特贏取，而兩人的父親老德格·福特亦曾任安大略省議員。\n福特擔任市長期間捲入多項爭議，當中包括於2012年11月被法庭裁定違反安大略省的市政利益衝突法，遭到免職；福特就裁決提出上訴，並於2013年1月25日獲判上訴得直，保住市長一職。此外，他於2013年陷入吸毒和酗酒醜聞後原先否認所有指控，但在多倫多警方介入調查後，福特於同年11月公開承認曾吸食與購買古柯鹼。他拒絕就此辭去市長職位，而多倫多市議會則於同月18日經投票決定將其大部分市長權力轉交予副市長諾姆·凱利 。\n縱受醜聞困擾，福特仍堅持在2014年市選中尋求連任市長，但於同年5-6月請假並暫停競選活動，前往戒毒所接受治療。同年9月，福特確診患有惡性脂肪肉瘤後退出市長選舉，並改為競逐北怡陶碧谷第二選區市議員，在同年10月舉行的市選中當選。"@zh-TW     .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/people.person.sibling_s>    <http://rdf.freebase.com/ns/m.0z9f3s2>  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.topic_equivalent_webpage>      <http://ko.wikipedia.org/wiki/index.html?curid=933988>     .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.type>   <http://rdf.freebase.com/ns/people.person>      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/en>        "rob_ford"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.name>   "Rob Ford"@sv   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/government.politician.election_campaigns>   <http://rdf.freebase.com/ns/m.010f6j82> .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.alias> "Robert Bruce Ford"@en  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.ja_id>   "2882302"       .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.en>      "Frugal_folk_hero"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/government.politician.government_positions_held>    <http://rdf.freebase.com/ns/m.0v20tv9>     .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.notable_types> <http://rdf.freebase.com/ns/m.02xlh55>  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.name>   "Роб Форд"@ru   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/ko_title/$B86D_$D3EC$B4DC"  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/es/Robert_Bruce_Ford"       .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/en/Rob_Ford"        .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/zh-cn_title/$7F85$67CF$7279$00B7$798F$7279" .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/fr/Rob_Ford"        .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/ja_id/2882302"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.topic_equivalent_webpage>      <http://ko.wikipedia.org/wiki/%6D_%EC%DC> .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/en/Frugal_folk_hero"        .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.topic_equivalent_webpage>      <http://fa.wikipedia.org/wiki/index.html?curid=2107456>    .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.description>   "Rob Ford è un politico canadese, sindaco della città di Toronto dal 1º dicembre 2010 al 30 novembre 2014."@it     .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.description>   "Robert Bruce \"Rob\" Ford is a Canadian politician and businessperson who is currently a Toronto City Councillor. He was Mayor of Toronto, Ontario, from 2010 to 2014. Prior to being mayor, Ford was a city councillor. He was first elected to City Council in the 2000 Toronto municipal election, and was re-elected to his council seat twice. At first discounted as a potential mayor, Ford was elected mayor in the 2010 mayoral election on a platform of reducing the \"gravy train\" of government expenses and taxes.\nDuring his political career, Ford has been the subject of a number of personal and work-related controversies and legal proceedings, including a conflict of interest trial that nearly resulted in his being removed from office. In 2013, he became embroiled in a substance abuse scandal, which was widely reported in the national and international media. Ford initially denied the allegations, but after a 2013 Toronto Police Service gang investigation led to police discovering videos of Ford, he admitted to all of the incidents, including public drunkenness, drinking and driving, and illegal drug use. Ford admitted to smoking crack cocaine \"probably in one of my drunken stupors\"."@en   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.name>   "罗柏特·福特"@zh        .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.name>   "راب فورد"@fa   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.article>       <http://rdf.freebase.com/ns/m.05bdcm>   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/et/Rob_Ford"        .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://www.w3.org/2000/01/rdf-schema#label>    "Ρομπ Φορντ"@el .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.topic_equivalent_webpage>      <http://et.wikipedia.org/wiki/index.html?curid=357166>     .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.type>   <http://rdf.freebase.com/ns/base.type_ontology.agent>   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/fr_title/Rob_Ford"  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.ja>      "$30ED$30D6$30FB$30D5$30A9$30FC$30C9"   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.notable_for>   <http://rdf.freebase.com/ns/g.1254zbnh3>        .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.description>   "ロバート・ブルース・\"ロブ\"・フォードは、カナダの政治家、実業家。オンタリオ州トロントの第64代市長を務めた。フォードは、2010年トロント市長選挙 で当選し、12月1日から市長に就任した。\n市長就任前、フォードはエトビコ地区を代表する市議会議員を務めていた。市議会議員としては2000年トロント市議会選挙 で初当選し、2003年、2006年の選挙でも再選された。兄のダグ・フォード・ジュニア は、現在トロント市議である。父ダグ・フォード・シニア も、かつては政治家として活動しており、オンタリオ州議会議員 を務めた。フォード家は、エトビコに拠点を置く、ラベル制作や印刷事業を行う多国籍企業 Deco Labels を所有している。\n政界進出後のフォードは、個人的な事柄や公務との関係で数多くの批判を浴び、法的措置をとられており、特に利益相反行為を指摘された裁判 では、危うく失職しかけるところまで追いつめられた。2013年には、薬物乱用疑惑が持ち上がり、カナダ国内にみならず国際的にも大きく報道された。この疑惑は、フォード市長を捜査対象に含むトロント市警察 の調査が進められる中でも報道が続いた。これらの疑惑について、フォードは最終的に事実であることを認め、「おそらく、酔っぱらってぼんやりしていたときに一度 」クラック・コカインを使用したと述べた。\nフォードが薬物乱用を認めたことは様々な議論を巻き起こしたが、不適切な行為の告発はさらに続き、トロント市議会は2013年11月15日に、市長権限の一部をフォードから取り上げ、フォードの任期の残存期間中は副市長ノーム・ケリー にこれを委ねるという決定をした。2013年11月18日には、市議会はさらに追加の決議を行い、より多くの権限をフォードからケリーに移した。"@ja      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.type>   <http://rdf.freebase.com/ns/book.book_subject>  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/zh-tw/$7F85$67CF$7279$00B7$798F$7279"       .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/sv/Rob_Ford"        .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.topic_equivalent_webpage>      <http://bg.wikipedia.org/wiki/%20%3E%31_%24%3E%40%34>      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/bg/$0420$043E$0431_$0424$043E$0440$0434"    .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.name>   "Rob Ford"@en   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/bg_id/462766"       .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.name>   "ロブ・フォード"@ja     .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/zh-tw_title/$7F85$67CF$7279$00B7$798F$7279" .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.zh-cn>   "$7F57$67CF$7279$00B7$798F$7279"        .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.type>   <http://rdf.freebase.com/ns/common.topic>       .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/zh-cn/$7F85$67CF$7279$00B7$798F$7279"       .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.topic_equivalent_webpage>      <http://de.wikipedia.org/wiki/index.html?curid=5757455>    .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.topic_equivalent_webpage>      <http://et.wikipedia.org/wiki/Rob_Ford> .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.topic_equivalent_webpage>      <http://en.wikipedia.org/wiki/Rob_Ford> .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/ko_id/933988"       .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/fa/$0628$0627$0628_$0641$0648$0631$062F"    .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/fa_id/2107456"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://www.w3.org/2000/01/rdf-schema#label>    "Rob Ford"@sv   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/government.politician.party>        <http://rdf.freebase.com/ns/m.0whj5fw>  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/it_title/Rob_Ford"  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/people.person.gender>       <http://rdf.freebase.com/ns/m.05zppz>   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/book.book_subject.works>    <http://rdf.freebase.com/ns/m.0_mxch1>  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.bg_id>   "462766"        .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/people.person.profession>   <http://rdf.freebase.com/ns/m.0fj9f>    .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/fa/$0631$0627$0628_$0641$0648$0631$062F"    .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.name>   "Rob Ford"@et   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.topic_equivalent_webpage>      <http://sv.wikipedia.org/wiki/Rob_Ford> .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.topic_equivalent_webpage>      <http://es.wikipedia.org/wiki/Rob_Ford> .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.description>   "Rob Ford, né le 28 mai 1969 à Etobicoke, est un homme politique canadien, maire de Toronto de 2010 à 2014."@fr    .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.topic_equivalent_webpage>      <http://ru.wikipedia.org/wiki/index.html?curid=4801684>    .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.name>   "Rob Ford"@es   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.topic_equivalent_webpage>      <http://no.wikipedia.org/wiki/index.html?curid=1235438>    .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.topic_equivalent_webpage>      <http://ru.wikipedia.org/wiki/%24%3E%40%34,_%20%3E%31>     .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.topic_equivalent_webpage>      <http://sv.wikipedia.org/wiki/index.html?curid=3970763>    .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/people.person.education>    <http://rdf.freebase.com/ns/m.0k22cbp>  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.description>   "رابرت بروس \"راب\" فورد سیاستمدار و بیزنس‌من کانادایی است که از ۲۰۱۰ تا ۲۰۱۴، به عنوان ۶۴ مین شهردار تورنتو، انتاریو، کانادا مشغول به کار بود. فورد در انتخابات شهرداری ۲۰۱۰ تورنتو بدین سمت برگزیده شد.\nفورد در ۲ ژانویه ۲۰۱۴، برای انتخاب مجدد در انتخابات نام‌نویسی کرد. مایک تایسون از وی در انتخابات حمایت کرده است."@fa .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/en_title/Rob_Ford"  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/de/Rob_Ford"        .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/people.person.spouse_s>     <http://rdf.freebase.com/ns/m.0j6l01w>  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/fa_title/$0631$0627$0628_$0641$0648$0631$062F"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://www.w3.org/2000/01/rdf-schema#label>    "Rob Ford"@en   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://www.w3.org/2000/01/rdf-schema#label>    "Роб Форд"@bg   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.topic_equivalent_webpage>      <http://fr.wikipedia.org/wiki/index.html?curid=5048267>    .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.description>   "روب فورد هو سياسي كندي"@ar     .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/people.person.place_of_birth>       <http://rdf.freebase.com/ns/m.01h57r>   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/et_id/357166"       .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/zh-tw/$7F57$67CF$7279$00B7$798F$7279"       .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.topic_equivalent_webpage>      <http://es.wikipedia.org/wiki/index.html?curid=6085602>    .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/people.person.date_of_birth>        "1969-05-28"^^<http://www.w3.org/2001/XMLSchema#date>      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.no_title>        "Rob_Ford"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.topic_equivalent_webpage>      <http://fi.wikipedia.org/wiki/index.html?curid=1136502>    .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/en_id/1560095"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.sv_title>        "Rob_Ford"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/es/Rob_Ford"        .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.name>   "Ρομπ Φορντ"@el .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.topic_equivalent_webpage>      <http://ja.wikipedia.org/wiki/%ED%D6%FB%D5%A9%FC%C9>       .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/fi_title/Rob_Ford"  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.type>   <http://rdf.freebase.com/ns/base.type_ontology.physically_instantiable>    .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/zh-tw_id/3183415"   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.name>   "Rob Ford"@no   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/ru/$0420$043E$0431$0435$0440$0442_$0411$0440$044E$0441_$0424$043E$0440$0434"   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.es_id>   "6085602"       .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/et_title/Rob_Ford"  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.type>   <http://rdf.freebase.com/ns/government.politician>      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.topic_equivalent_webpage>      <http://de.wikipedia.org/wiki/Rob_Ford> .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.sv>      "Rob_Ford"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.description>   "罗伯特·福特，加拿大政治人物和商人，现任安大略省多伦多市议会北怡陶碧谷第二选区市议员。他曾于2010年至2014年间担任多伦多第64任市长，在此之前于2000年首度当选北怡陶碧谷第二选区市议员，并于2003年和2006年的两届市选中连任。他为了竞选市长而腾空的市议员席位于2010年市选中由兄长德格·福特赢取，而两人的父亲老德格·福特亦曾任安大略省议员。\n福特担任市长期间卷入多项争议，当中包括于2012年11月被法庭裁定违反安大略省的市政利益冲突法，遭到免职；福特就裁决提出上诉，并于2013年1月25日获判上诉得直，保住市长一职。此外，他于2013年陷入吸毒和酗酒丑闻后原先否认所有指控，但在多伦多警方介入调查后，福特于同年11月公开承认曾吸食与购买可卡因。他拒绝就此辞去市长职位，而多伦多市议会则于同月18日经投票决定将其大部分市长权力转交予副市长诺姆·凯利 。\n纵受丑闻困扰，福特仍坚持在2014年市选中寻求连任市长，但于同年5-6月请假并暂停竞选活动，前往戒毒所接受治疗。同年9月，福特确诊患有恶性脂肪肉瘤后退出市长选举，并改为竞逐北怡陶碧谷第二选区市议员，在同年10月举行的市选中当选。"@zh        .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.description>   "Robert Bruce \"Rob\" Ford on kanadalainen konservatiivipoliitikko ja liikemies, joka toimi Toronton kaupungin historian 64. pormestarina vaalikaudella 2010–2014. Hänet tunnetaan korkean verotuksen vastustajana.\nPormestarikautensa aikana Ford oli osallisena useissa työhönsä liittyvissä ja työn ulkopuolisissa kohuissa. Fordin alkoholi- ja päihdeongelmien noustua julkisuuteen Toronton kaupunginvaltuusto vei suurimman osan hänen valtaoikeuksistaan.\nFord oli pyrkimässä myös kaudelle 2014–2018 Toronton pormestariksi mutta vetäytyi vaalikampanjasta, kun hänen vatsastaan löydettiin kasvain. Hänet valittiin kuitenkin Toronton kaupunginvaltuutetuksi. Kasvaimen löytymisen jälkeen Fordin veli Doug otti hänen paikkansa pormestariehdokkaana mutta hävisi vaalit John Torylle."@fi      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://www.w3.org/2000/01/rdf-schema#label>    "روب فورد"@ar   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/zh-cn/$7F57$67CF$7279$00B7$798F$7279"       .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.description>   "Robert Bruce \"Rob\" Ford on Kanada poliitik ja ettevõtja. Ta on Kanada suurima linna, Ontario provintsi keskuse Toronto 64. linnapea.\nEnne linnapeaks saamist oli Ford linnavolinik. Ta valiti Toronto linnavolikokku 2000. aastal ning seejärel veel kahel korral. 2010. aastal valiti Ford linnapeaks, tema valimislubadus oli vähendada linnavalitsuse kulusid ja makse. Ta astus ametisse 2010. aasta detsembris.\nFordi poliitilist karjääri on saatnud terve rida isiklikke ja tööalaseid skandaale ja kohtuasju, sealhulgas kohtuasi huvide konflikti teemal, mille tagajärjel oleks ta peaaegu ametist vabastatud. 2013. aastal sattus ta skandaali seoses narkootikumide tarvitamisega, mida kajastas ulatuslikult nii Kanada kui ka rahvusvaheline ajakirjandus. Algselt eitas Ford süüdistusi, kuid Toronto politsei avastas organiseeritud kuritegevuse uurimise käigus video, mis neid tõestas. Seejärel võttis Ford kõik süüdistused omaks, sealhulgas avalikus kohas purjuspäi viibimise ja illegaalse narkootikumitarvitamise. Ford tunnistas, et on kasutanud crack'i \"arvatavasti mõnikord maani täis olles\".\nÜlestunnistuse järel keeldus Ford sellgipoolest linnapea ametist tagasi astumast."@et     .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/freebase.valuenotation.has_value>   <http://rdf.freebase.com/ns/m.025d7wc>  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/no/Rob_Ford"        .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.topic_equivalent_webpage>      <http://no.wikipedia.org/wiki/Rob_Ford> .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.topic_equivalent_webpage>      <http://zh.wikipedia.org/zh-cn/%85%CF%79%B7%8F%79> .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/ja_title/$30ED$30D6$30FB$30D5$30A9$30FC$30C9"       .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.ko_id>   "933988"        .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.es>      "Rob_Ford"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/people.person.children>     <http://rdf.freebase.com/ns/m.0z9fc56>  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.official_website>      <http://www.robfordformayor.ca/>        .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/people.person.parents>      <http://rdf.freebase.com/ns/m.05bn1l>   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/it/Rob_Ford"        .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.image> <http://rdf.freebase.com/ns/m.0h0k2g5>  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.topic_equivalent_webpage>      <http://zh.wikipedia.org/zh-tw/%85%CF%79%B7%8F%79> .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://www.w3.org/2000/01/rdf-schema#label>    "羅柏特·福特"@zh-Hant   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.type>   <http://rdf.freebase.com/ns/base.type_ontology.animate> .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/people.person.children>     <http://rdf.freebase.com/ns/m.0k38y__>  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/government.politician.party>        <http://rdf.freebase.com/ns/g.11bc822mkv>       .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.name>   "Rob Ford"@de   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.name>   "Rob Ford"@fi   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.fr>      "Rob_Ford"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/de_id/5757455"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.name>   "Роб Форд"@bg   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/authority/daylife/topic/0dd5bPB5Vsgjk"        .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.description>   "로버트 브루스 '롭' 포드 는 캐나다의 정치인이자 사업가이다. 롭 포드는 2010년 시장 선거에서 당선된 이후 그 해 12월 1일부터 지금까지 캐나다 온타리오 주 토론토의 시장을 맡고 있다.\n2012년 11월, 포드는 온타리오 주의 이해충돌 법을 위반하여 시장직을 상실하였으나 이에 대해 온타리오 주법원에 항소하여 항소심에서 승소하였으며 현재까지 시장직을 수행하고 있다.\n시장이 되기 전, 롭 포드는 2000년 지방 선거에서 토론토 이토비코 지역 시의원으로 당선되어 토론토 시의원으로 지냈으며 2003년 및 2006년에 재선하여 2010년 10월 25일까지 시의원 직을 수행하였다. 그의 형인 더그 포드는 현재 토론토 시의원으로 있으며 그의 아버지인 더그 포드 시니어 또한 정치인이자 온타리오 주의원이었다."@ko  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.name>   "羅柏特·福特"@zh-Hant   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.topic_equivalent_webpage>      <http://bg.wikipedia.org/wiki/index.html?curid=462766>     .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.fi>      "Rob_Ford"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.en_id>   "1560095"       .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/ko/$B86D_$D3EC$B4DC"        .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.name>   "Rob Ford"@it   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/fr_id/5048267"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.description>   "Robert Bruce Ford ist ein parteiloser kanadischer Kommunalpolitiker und war vom 1. Dezember 2010 bis zum 30. November 2014 der 64. Bürgermeister von Toronto."@de .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.sv_id>   "3970763"       .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/bg_title/$0420$043E$0431_$0424$043E$0440$0434"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.image> <http://rdf.freebase.com/ns/m.0crmyfb>  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.identity.daylife_topic>      "0dd5bPB5Vsgjk" .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.topic_equivalent_webpage>      <http://zh.wikipedia.org/wiki/index.html?curid=3183415>    .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.fa>      "$0628$0627$0628_$0641$0648$0631$062F"  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/en/Mayor_Ford"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.topic_equivalent_webpage>      <http://fr.wikipedia.org/wiki/Rob_Ford> .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/kg.object_profile.prominent_type>   <http://rdf.freebase.com/ns/government.politician>.
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/ja/$30ED$30D6$30FB$30D5$30A9$30FC$30C9"     .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.name>   "روب فورد"@ar   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/people.person.parents>      <http://rdf.freebase.com/ns/m.0z9dt7q>  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.en_title>        "Rob_Ford"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/ru/$0420$043E$0431_$0424$043E$0440$0434"    .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/en/Mayor_Rob_Ford"  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.topic_equivalent_webpage>      <http://fi.wikipedia.org/wiki/Rob_Ford> .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://www.w3.org/2000/01/rdf-schema#label>    "ロブ・フォード"@ja     .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/sv_title/Rob_Ford"  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/es_id/6085602"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/it_id/4737560"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.topic_equivalent_webpage>      <http://fa.wikipedia.org/wiki/%31%27%28_%41%48%31%2F>      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.topic_equivalent_webpage>      <http://en.wikipedia.org/wiki/index.html?curid=1560095>    .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/authority.daylife.topic>   "0dd5bPB5Vsgjk" .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/ru_id/4801684"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.description>   "Robert Bruce \"Rob\" Ford er en kanadisk politiker og forretningsmann. Han er den 64. og nåværende ordfører i Toronto, Ontario, Canada. Før han var ordfører, så var Ford byråd. Han ble første gang valgt til Toronto bystyre i kommunevalget i 2000, og ble gjenvalgt til sin kommune sete to ganger etter dette.\nI løpet av sin politiske karriere, har Ford vært gjenstand for en rekke personlige og arbeidsrelaterte kontroverser og søksmål, inkludert en rettssak som nesten resulterte i at han ble fjernet fra kontoret. I 2013 ble han involvert i en rusmisbruksskandale, som ble omfattende rapportert i nasjonale og internasjonale medier. Ford benektet påstandene, men etter en 2013 etterforskning av politiet så ble det oppdager videoer av Ford. Han innrømte så alle hendelsene, inkludert ulovlig bruk av narkotika"@no       .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.description>   "Роб Форд е канадски политик и кмет на Торонто, най-големият град в Канада."@bg    .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.name>   "רוב פורד"@iw   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/ru_title/$0424$043E$0440$0434$002C_$0420$043E$0431" .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.zh-tw_title>     "$7F85$67CF$7279$00B7$798F$7279"        .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.en>      "Rob_Ford"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.zh-tw>   "$7F57$67CF$7279$00B7$798F$7279"        .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.zh-cn_title>     "$7F85$67CF$7279$00B7$798F$7279"        .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.ru>      "$0420$043E$0431$0435$0440$0442_$0411$0440$044E$0441_$0424$043E$0440$0434" .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.fi_title>        "Rob_Ford"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.zh-tw_id>        "3183415"       .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.bg>      "$0420$043E$0431_$0424$043E$0440$0434"  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.en>      "Mayor_Rob_Ford"        .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.ko_title>        "$B86D_$D3EC$B4DC"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.no_id>   "1235438"       .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.it_title>        "Rob_Ford"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.en>      "Mayor_Ford"    .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.de_id>   "5757455"       .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.zh-cn_id>        "3183415"       .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.ja_title>        "$30ED$30D6$30FB$30D5$30A9$30FC$30C9"   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.et>      "Rob_Ford"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/wikipedia/sv_id/3970763"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.no>      "Rob_Ford"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.ru_id>   "4801684"       .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.de_title>        "Rob_Ford"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.ru>      "$0424$043E$0440$0434$002C_$0420$043E$0431"     .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.zh-cn>   "$7F85$67CF$7279$00B7$798F$7279"        .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.fr_title>        "Rob_Ford"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.es_title>        "Rob_Ford"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.fr_id>   "5048267"       .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.ru>      "$0420$043E$0431_$0424$043E$0440$0434"  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.fa_id>   "2107456"       .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.es>      "Robert_Bruce_Ford"     .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.et_id>   "357166"        .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.zh-tw>   "$7F85$67CF$7279$00B7$798F$7279"        .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.bg_title>        "$0420$043E$0431_$0424$043E$0440$0434"  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/type.object.key>    "/en/rob_ford"  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.ru_title>        "$0424$043E$0440$0434$002C_$0420$043E$0431"     .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.it_id>   "4737560"       .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.et_title>        "Rob_Ford"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.it>      "Rob_Ford"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.ko>      "$B86D_$D3EC$B4DC"      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://www.w3.org/2000/01/rdf-schema#label>    "Rob Ford"@de   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://www.w3.org/2000/01/rdf-schema#label>    "Rob Ford"@et   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/key/wikipedia.fi_id>   "1136502"       .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://www.w3.org/2000/01/rdf-schema#label>    "롭 포드"@ko    .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://www.w3.org/2000/01/rdf-schema#label>    "Rob Ford"@es   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://www.w3.org/2000/01/rdf-schema#label>    "罗柏特·福特"@zh        .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://www.w3.org/2000/01/rdf-schema#label>    "רוב פורד"@iw   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://rdf.freebase.com/ns/common.topic.topic_equivalent_webpage>      <http://it.wikipedia.org/wiki/Rob_Ford> .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://www.w3.org/2000/01/rdf-schema#label>    "Rob Ford"@it   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://www.w3.org/2000/01/rdf-schema#label>    "Роб Форд"@ru   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://www.w3.org/2000/01/rdf-schema#label>    "Rob Ford"@fr   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://www.w3.org/2000/01/rdf-schema#label>    "Rob Ford"@no   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://www.w3.org/2000/01/rdf-schema#label>    "راب فورد"@fa   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://www.w3.org/2000/01/rdf-schema#label>    "Rob Ford"@fi   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>       <http://rdf.freebase.com/ns/people.person>      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>       <http://rdf.freebase.com/ns/base.type_ontology.agent>   .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>       <http://rdf.freebase.com/ns/book.book_subject>  .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>       <http://rdf.freebase.com/ns/common.topic>       .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>       <http://rdf.freebase.com/ns/base.type_ontology.physically_instantiable>    .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>       <http://rdf.freebase.com/ns/government.politician>      .
+<http://rdf.freebase.com/ns/m.05bdcg>   <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>       <http://rdf.freebase.com/ns/base.type_ontology.animate> .
+<http://rdf.freebase.com/ns/m.0fj9f>    <http://rdf.freebase.com/ns/people.profession.people_with_this_profession>      <http://rdf.freebase.com/ns/m.05bdcg>      .
+<http://rdf.freebase.com/ns/m.0j6l01w>  <http://rdf.freebase.com/ns/people.marriage.spouse>     <http://rdf.freebase.com/ns/m.05bdcg>   .
+<http://rdf.freebase.com/ns/m.0k22cbp>  <http://rdf.freebase.com/ns/education.education.student>        <http://rdf.freebase.com/ns/m.05bdcg>   .
+<http://rdf.freebase.com/ns/m.010f6j82> <http://rdf.freebase.com/ns/government.election_campaign.candidate>     <http://rdf.freebase.com/ns/m.05bdcg>   .
+<http://rdf.freebase.com/ns/m.0k38y__>  <http://rdf.freebase.com/ns/people.person.parents>      <http://rdf.freebase.com/ns/m.05bdcg>   .
+<http://rdf.freebase.com/ns/m.05bn1l>   <http://rdf.freebase.com/ns/people.person.children>     <http://rdf.freebase.com/ns/m.05bdcg>   .
+<http://rdf.freebase.com/ns/m.0_mxch1>  <http://rdf.freebase.com/ns/book.written_work.subjects> <http://rdf.freebase.com/ns/m.05bdcg>   .
+<http://rdf.freebase.com/ns/government.politician>      <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.05bdcg>   .
+<http://rdf.freebase.com/ns/book.book_subject>  <http://rdf.freebase.com/ns/type.type.instance> <http://rdf.freebase.com/ns/m.05bdcg>   .
+<http://rdf.freebase.com/ns/m.0v20tv9>  <http://rdf.freebase.com/ns/government.government_position_held.office_holder>  <http://rdf.freebase.com/ns/m.05bdcg>      .
+<http://rdf.freebase.com/ns/m.0wzqftw>  <http://rdf.freebase.com/ns/dataworld.gardening_hint.last_referenced_by>        <http://rdf.freebase.com/ns/m.05bdcg>      .

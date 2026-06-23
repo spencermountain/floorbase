@@ -1,5 +1,4 @@
 export default [
-
   'http://rdf.freebase.com/ns/tv.tv_series_episode.air_date',
   'http://rdf.freebase.com/ns/music.release.release_date',
   'http://rdf.freebase.com/ns/book.book_edition.publication_date',

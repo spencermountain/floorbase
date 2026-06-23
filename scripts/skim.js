@@ -10,7 +10,7 @@ const file = resolve(homedir(), 'Desktop/freebase-rdf-latest.gz')
 
 let include = new Set([
   'http://rdf.freebase.com/ns/people.person.date_of_birth',
-  'http://rdf.freebase.com/key/wikipedia.en',
+  'http://rdf.freebase.com/key/wikipedia.en_title',
   'http://rdf.freebase.com/ns/common.topic.official_website',
 ])
 
