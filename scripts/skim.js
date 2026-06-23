@@ -1,53 +1,39 @@
-let want = new Set([
+
+
+import { spawn } from 'node:child_process'
+import { createInterface } from 'node:readline'
+import { writeFile } from 'node:fs/promises'
+import { homedir } from 'node:os'
+import { resolve } from 'node:path'
+
+const file = resolve(homedir(), 'Desktop/freebase-rdf-latest.gz')
+
+let include = new Set([
   'http://rdf.freebase.com/ns/people.person.date_of_birth',
   'http://rdf.freebase.com/key/wikipedia.en',
   'http://rdf.freebase.com/ns/common.topic.official_website',
-  'http://rdf.freebase.com/ns/tv.tv_series_episode.air_date',
-  'http://rdf.freebase.com/ns/music.release.release_date',
-  'http://rdf.freebase.com/ns/book.book_edition.publication_date',
-  'http://rdf.freebase.com/ns/music.album.release_date',
-  'http://rdf.freebase.com/ns/people.deceased_person.date_of_death',
-  'http://rdf.freebase.com/ns/film.film.release_date_s',
-  'http://rdf.freebase.com/ns/film.film.initial_release_date',
-  'http://rdf.freebase.com/ns/time.event.start_date',
-  'http://rdf.freebase.com/ns/organization.organization.date_founded',
-  'http://rdf.freebase.com/ns/book.written_work.date_of_first_publication',
-  'http://rdf.freebase.com/ns/time.event.end_date',
-  'http://rdf.freebase.com/ns/tv.tv_program.air_date_of_first_episode',
-  'http://rdf.freebase.com/ns/astronomy.astronomical_discovery.discovery_date',
-  'http://rdf.freebase.com/ns/cvg.game_version.release_date',
-  'http://rdf.freebase.com/ns/cvg.computer_videogame.release_date',
-  'http://rdf.freebase.com/ns/tv.tv_program.air_date_of_final_episode',
-  'http://rdf.freebase.com/ns/book.written_work.date_written',
-  'http://rdf.freebase.com/ns/visual_art.artwork.date_completed',
-  'http://rdf.freebase.com/ns/visual_art.artwork.date_begun',
-  'http://rdf.freebase.com/ns/theater.theater_production.date_opened',
-  'http://rdf.freebase.com/ns/time.recurring_event.date_of_first_occurance',
-  'http://rdf.freebase.com/ns/book.periodical.first_issue_date',
-  'http://rdf.freebase.com/ns/music.composition.date_completed',
-  'http://rdf.freebase.com/ns/royalty.noble_title_tenure.from_date',
-  'http://rdf.freebase.com/ns/biology.organism.date_of_birth',
-  'http://rdf.freebase.com/ns/projects.project.start_date',
-  'http://rdf.freebase.com/ns/theater.play.date_of_first_performance',
-  'http://rdf.freebase.com/ns/computer.software.latest_release_date',
-  'http://rdf.freebase.com/ns/broadcast.podcast_feed.date_published',
-  'http://rdf.freebase.com/ns/award.hall_of_fame_induction.date',
-  'http://rdf.freebase.com/ns/medicine.hospital.date_founded',
-  'http://rdf.freebase.com/ns/book.periodical.final_issue_date',
-  'http://rdf.freebase.com/ns/geography.mountain.date_of_first_ascent',
-  'http://rdf.freebase.com/ns/opera.opera.date_of_first_performance',
-  'http://rdf.freebase.com/ns/interests.collectable_item.release_date',
-  'http://rdf.freebase.com/ns/architecture.structure.destruction_date',
-  'http://rdf.freebase.com/ns/people.deceased_person.date_of_burial',
-  'http://rdf.freebase.com/ns/architecture.ownership.start_date',
-  'http://rdf.freebase.com/ns/business.company_name_change.start_date',
-  'http://rdf.freebase.com/ns/opera.opera.date_written',
-  'http://rdf.freebase.com/ns/spaceflight.satellite.launch_date',
-  'http://rdf.freebase.com/ns/fictional_universe.fictional_character.date_of_birth',
-  'http://rdf.freebase.com/ns/user.alexander.misc.murdered_person.date_murdered',
-  'http://rdf.freebase.com/ns/projects.project.actual_completion_date',
-  'http://rdf.freebase.com/ns/music.music_video.initial_release_date',
-  'http://rdf.freebase.com/ns/comic_strips.comic_strip.date_of_first_strip',
-  'http://rdf.freebase.com/ns/time.recurring_event.date_of_final_occurance'
-
 ])
+
+// one source of truth → rg pattern file, tab-anchored to column 2
+const patternFile = './include.txt'
+await writeFile(
+  patternFile,
+  [...include].map(p => `\t${p}\t`).join('\n') + '\n'
+)
+
+// rg: fixed strings (-F), invert (-v), patterns from file (-f)
+const cmd = `gzcat ${file} | rg -F -f ${patternFile}`
+console.log(cmd)
+const proc = spawn('sh', ['-c', cmd])
+
+const rl = createInterface({ input: proc.stdout, crlfDelay: Infinity })
+
+for await (const line of rl) {
+  const tab1 = line.indexOf('\t')
+  const tab2 = line.indexOf('\t', tab1 + 1)
+  const predicate = line.slice(tab1 + 1, tab2)
+  if (include.has(predicate)) {   // exact backstop
+    // keep line;
+    console.log(line)
+  }
+}
