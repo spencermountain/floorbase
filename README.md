@@ -10,6 +10,7 @@ Notes:
 ```bash
 brew install ripgrep
 brew install sd
+brew install pigz # optional: faster gzip
 
 
 # grep for a particular topic (anywhere)
