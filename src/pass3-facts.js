@@ -1,6 +1,6 @@
 // pass 3 — hand-picked predicates → cleaned 5-column facts.parquet
 import { readFile } from 'node:fs/promises'
-import { ENGLISH_ONLY, FACTS_PARQUET, FILTERED, INCLUDE_FILE, NS } from './config.js'
+import { ENGLISH_ONLY, FACTS_PARQUET, FILTERED, INCLUDE_FILE, NS } from '../config.js'
 import { duckdbCopy, eachLine, q, streamCmd, writePatterns } from './shell.js'
 import { clip, csv, gb, lines, log, unescapeNT } from './util.js'
 

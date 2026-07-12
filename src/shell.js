@@ -5,7 +5,7 @@ import { existsSync } from 'node:fs'
 import { mkdtemp, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { DUMP } from './config.js'
+import { DUMP } from '../config.js'
 
 // session tmp dir, holds rg pattern files + throwaway duckdb databases
 let TMP = null
@@ -104,7 +104,7 @@ export function duckdbCopy(sql) {
   const c = spawn('bash', ['-c', 'set -o pipefail\ncat | duckdb -bail "$1" -c "$2"', 'bash', db, sql], {
     stdio: ['pipe', 'inherit', 'inherit'],
   })
-  c.stdin.on('error', () => {}) // EPIPE surfaces via exit code instead
+  c.stdin.on('error', () => { }) // EPIPE surfaces via exit code instead
   const done = new Promise((res, rej) => {
     c.on('error', rej)
     c.on('close', (code) => (code === 0 ? res() : rej(new Error(`duckdb failed (exit ${code})`))))

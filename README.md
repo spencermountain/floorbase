@@ -14,19 +14,19 @@ brew install pigz # optional: faster gzip
 
 
 # grep for a particular topic (anywhere)
-gzcat /Users/spencer/Desktop/freebase-rdf-latest.gz | rg -a -F '<http://rdf.freebase.com/ns/m.05bdcg>'
+gzcat ~/Desktop/freebase-rdf-latest.gz | rg -a -F '<http://rdf.freebase.com/ns/m.05bdcg>'
 
 # grep for a particular subject
-gzcat /Users/spencer/Desktop/freebase-rdf-latest.gz | rg -a '^<http://rdf\.freebase\.com/ns/m\.05bdcg>'
+gzcat ~/Desktop/freebase-rdf-latest.gz | rg -a '^<http://rdf\.freebase\.com/ns/m\.05bdcg>'
 
 # grep for a property
-gzcat /Users/spencer/Desktop/freebase-rdf-latest.gz | rg -a -F 'http://rdf.freebase.com/ns/event.disaster.type_of_disaster'
+gzcat ~/Desktop/freebase-rdf-latest.gz | rg -a -F 'http://rdf.freebase.com/ns/event.disaster.type_of_disaster'
 
 # grep for a property and save to file
-time (gzcat /Users/spencer/Desktop/freebase-rdf-latest.gz | rg -a -F 'http://rdf.freebase.com/ns/time.event.start_date' > start-dates.txt) && wc -l ./start-dates.txt
+time (gzcat ~/Desktop/freebase-rdf-latest.gz | rg -a -F 'http://rdf.freebase.com/ns/time.event.start_date' > start-dates.txt) && wc -l ./start-dates.txt
 
 # cleanup rdf cruft
-gzcat /Users/spencer/Desktop/freebase-rdf-latest.gz | rg -a -F 'http://rdf.freebase.com/ns/event.disaster.type_of_disaster' | sd "http://rdf.freebase.com/ns" "" | sd "   ." ""
+gzcat ~/Desktop/freebase-rdf-latest.gz | rg -a -F 'http://rdf.freebase.com/ns/event.disaster.type_of_disaster' | sd "http://rdf.freebase.com/ns" "" | sd "   ." ""
 ```
 
 ## first pass

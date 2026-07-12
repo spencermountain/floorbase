@@ -1,6 +1,6 @@
 // pass 1 — strip unwanted predicates from the raw dump → smaller gzip
 import { readFile } from 'node:fs/promises'
-import { DUMP, EXCLUDE_FILE, FILTERED } from './config.js'
+import { DUMP, EXCLUDE_FILE, FILTERED } from '../config.js'
 import { hasPigz, q, shell, writePatterns } from './shell.js'
 import { gb, lines, log } from './util.js'
 

@@ -2,7 +2,7 @@
 import { createWriteStream, existsSync } from 'node:fs'
 import { readFile } from 'node:fs/promises'
 import { finished } from 'node:stream/promises'
-import { FILTERED, NAMES_FILE, NS, WIKI_PRED } from './config.js'
+import { FILTERED, NAMES_FILE, NS, WIKI_PRED } from '../config.js'
 import { BufWriter, eachLine, q, streamCmd, writePatterns } from './shell.js'
 import { decodeKey, gb, log, unescapeNT } from './util.js'
 

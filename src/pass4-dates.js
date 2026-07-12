@@ -1,6 +1,6 @@
 // pass 4 — date predicates → dates.parquet, sorted by date for range queries
 import { readFile } from 'node:fs/promises'
-import { DATES_FILE, DATES_PARQUET, FILTERED, NS } from './config.js'
+import { DATES_FILE, DATES_PARQUET, FILTERED, NS } from '../config.js'
 import { duckdbCopy, eachLine, q, streamCmd, writePatterns } from './shell.js'
 import { clip, csv, gb, lines, log } from './util.js'
 

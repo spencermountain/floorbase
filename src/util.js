@@ -1,6 +1,6 @@
 // small pure helpers: logging, text cleanup, csv
 import { statSync } from 'node:fs'
-import { NS } from './config.js'
+import { NS } from '../config.js'
 
 const t0 = Date.now()
 

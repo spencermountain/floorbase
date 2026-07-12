@@ -11,7 +11,7 @@
 // paths can be overridden with env vars — see config.js
 
 import { mkdir, rm } from 'node:fs/promises'
-import { DATA, DATES_PARQUET, FACTS_PARQUET, NAMES_FILE } from './config.js'
+import { DATA, DATES_PARQUET, FACTS_PARQUET, NAMES_FILE } from '../config.js'
 import { pass1 } from './pass1-exclude.js'
 import { loadNames, pass2 } from './pass2-names.js'
 import { pass3 } from './pass3-facts.js'
