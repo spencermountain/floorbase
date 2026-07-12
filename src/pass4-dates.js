@@ -15,7 +15,8 @@ export async function pass4(names) {
 COPY (
   SELECT * FROM read_csv('/dev/stdin',
     columns = {'date':'VARCHAR','subject':'VARCHAR','predicate':'VARCHAR','subject_name':'VARCHAR'},
-    header = false, auto_detect = false, delim = ',', quote = '"', escape = '"', nullstr = '')
+    header = false, auto_detect = false, delim = ',', quote = '"', escape = '"', nullstr = '',
+    parallel = false)
   ORDER BY "date"
 ) TO '${DATES_PARQUET}' (FORMAT PARQUET, COMPRESSION ZSTD, ROW_GROUP_SIZE 122880);`)
 

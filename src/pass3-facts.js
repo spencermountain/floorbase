@@ -16,7 +16,8 @@ COPY (
   SELECT * FROM read_csv('/dev/stdin',
     columns = {'subject':'VARCHAR','predicate':'VARCHAR','object':'VARCHAR','subject_name':'VARCHAR','object_name':'VARCHAR'},
     header = false, auto_detect = false, delim = ',', quote = '"', escape = '"',
-    nullstr = '', max_line_size = 20000000)
+    nullstr = '', max_line_size = 20000000,
+    parallel = false)
 ) TO '${FACTS_PARQUET}' (FORMAT PARQUET, COMPRESSION ZSTD);`)
 
   let n = 0
