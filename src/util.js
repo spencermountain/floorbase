@@ -33,6 +33,14 @@ export function unescapeNT(s) {
 export const decodeKey = (s) =>
   s.replace(/\$([0-9A-Fa-f]{4})/g, (_, hex) => String.fromCharCode(parseInt(hex, 16))).replace(/_/g, ' ')
 
+// encode newlines as \x01 so every csv record stays on one physical line —
+// duckdb's streaming readers choke on multi-line quoted fields, so the copy
+// restores them afterwards with replace(col, chr(1), chr(10))
+export function oneLine(s) {
+  if (!s.includes('\n') && !s.includes('\r') && !s.includes('\x01')) return s
+  return s.replaceAll('\x01', '').replaceAll('\r\n', '\x01').replaceAll('\n', '\x01').replaceAll('\r', '\x01')
+}
+
 // csv field, quoted only when needed. empty string → unquoted empty → NULL in duckdb
 export function csv(s) {
   if (s === '') return ''

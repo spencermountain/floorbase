@@ -3,7 +3,7 @@ import { spawn, spawnSync } from 'node:child_process'
 import { once } from 'node:events'
 import { existsSync } from 'node:fs'
 import { mkdtemp, rm, writeFile } from 'node:fs/promises'
-import { tmpdir } from 'node:os'
+import { tmpdir, totalmem } from 'node:os'
 import { join } from 'node:path'
 import { DUMP } from '../config.js'
 
@@ -99,9 +99,36 @@ export class BufWriter {
 // the `cat |` hop matters: node gives children a socketpair as stdin, which macOS
 // can't reopen as '/dev/stdin' — cat turns it into a real kernel pipe duckdb can read.
 // -bail matters too: without it the duckdb cli exits 0 even when the query errors.
+//
+// hard-won pipe rules (duckdb 1.2): the PARALLEL csv reader is the only one that
+// frees buffers on a pipe — read_csv(parallel=false) retains the whole stream and
+// OOMs. the parallel reader in turn requires every record on one physical line
+// (multi-line quoted fields make it demand a seekable re-read), so callers must
+// sentinel-encode newlines (see oneLine in util.js) and restore them in sql.
+// ORDER BY over a pipe is also out (unbounded memory) — pass 5 sorts file→file.
+
+// duckdb must share an 8gb machine with node's ~1.2gb names map, so keep it
+// small: quarter of ram + few threads (fewer 32mb csv buffers in flight) + a
+// spill directory. the streaming copy shape is verified to run in under 1gb.
+const duckdbSettings = (db) =>
+  `SET memory_limit = '${Math.max(2, Math.floor(totalmem() / 2 ** 30 / 4))}GB';\n` +
+  `SET temp_directory = '${db}.tmp';\n` +
+  `SET threads = 4;\n`
+
+// run a self-contained duckdb job (no stdin data), e.g. the pass-5 sort
+export const duckdbRun = (sql) => {
+  const db = join(TMP, `tmp-${Math.random().toString(36).slice(2)}.db`)
+  return new Promise((res, rej) => {
+    const c = spawn('duckdb', ['-bail', db, '-c', duckdbSettings(db) + sql], { stdio: ['ignore', 'inherit', 'inherit'] })
+    c.on('error', rej)
+    c.on('close', (code) => (code === 0 ? res() : rej(new Error(`duckdb failed (exit ${code})`))))
+  })
+}
+
 export function duckdbCopy(sql) {
   const db = join(TMP, `tmp-${Math.random().toString(36).slice(2)}.db`)
-  const c = spawn('bash', ['-c', 'set -o pipefail\ncat | duckdb -bail "$1" -c "$2"', 'bash', db, sql], {
+  const settings = duckdbSettings(db) + `SET preserve_insertion_order = false;\n`
+  const c = spawn('bash', ['-c', 'set -o pipefail\ncat | duckdb -bail "$1" -c "$2"', 'bash', db, settings + sql], {
     stdio: ['pipe', 'inherit', 'inherit'],
   })
   c.stdin.on('error', () => { }) // EPIPE surfaces via exit code instead
@@ -114,11 +141,13 @@ export function duckdbCopy(sql) {
 
 export const hasPigz = () => spawnSync('which', ['pigz']).status === 0
 
-export function checkTools() {
+// only pass 1 reads the raw dump — later passes just need filtered.gz,
+// so the dump can be moved off-disk once pass 1 has run
+export function checkTools({ needDump = false } = {}) {
   for (const [tool, hint] of [['rg', 'brew install ripgrep'], ['duckdb', 'brew install duckdb'], ['gzcat', '']]) {
     if (spawnSync('which', [tool]).status !== 0) {
       throw new Error(`missing required tool '${tool}'${hint ? ` — ${hint}` : ''}`)
     }
   }
-  if (!existsSync(DUMP)) throw new Error(`dump not found: ${DUMP}`)
+  if (needDump && !existsSync(DUMP)) throw new Error(`dump not found: ${DUMP}`)
 }

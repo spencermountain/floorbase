@@ -1,11 +1,12 @@
-// pass 4 — date predicates → dates.parquet, sorted by date for range queries
+// pass 4 — date predicates → dates-unsorted.parquet (streamed, cheap)
+// sorting happens afterwards in pass 5, file→file, where duckdb can spill
 import { readFile } from 'node:fs/promises'
-import { DATES_FILE, DATES_PARQUET, FILTERED, NS } from '../config.js'
+import { DATES_FILE, DATES_UNSORTED, FILTERED, NS } from '../config.js'
 import { duckdbCopy, eachLine, q, streamCmd, writePatterns } from './shell.js'
 import { clip, csv, gb, lines, log } from './util.js'
 
 export async function pass4(names) {
-  log('pass 4 — dates parquet')
+  log('pass 4 — dates parquet (unsorted)')
   const preds = lines(await readFile(DATES_FILE, 'utf8'))
   const predSet = new Set(preds.map((u) => `<${u}>`))
   const patFile = await writePatterns('dates', preds.map((u) => `\t<${u}>\t`))
@@ -15,10 +16,8 @@ export async function pass4(names) {
 COPY (
   SELECT * FROM read_csv('/dev/stdin',
     columns = {'date':'VARCHAR','subject':'VARCHAR','predicate':'VARCHAR','subject_name':'VARCHAR'},
-    header = false, auto_detect = false, delim = ',', quote = '"', escape = '"', nullstr = '',
-    parallel = false)
-  ORDER BY "date"
-) TO '${DATES_PARQUET}' (FORMAT PARQUET, COMPRESSION ZSTD, ROW_GROUP_SIZE 122880);`)
+    header = false, auto_detect = false, delim = ',', quote = '"', escape = '"', nullstr = '')
+) TO '${DATES_UNSORTED}' (FORMAT PARQUET, COMPRESSION ZSTD, ROW_GROUP_SIZE_BYTES '64MB');`)
 
   let kept = 0
   await eachLine(producer.stdout, (line) => {
@@ -37,5 +36,5 @@ COPY (
   await producer.done
   await bw.end()
   await done
-  log(`pass 4 done — ${kept} rows → ${DATES_PARQUET} (${gb(DATES_PARQUET)})`)
+  log(`pass 4 done — ${kept} rows → ${DATES_UNSORTED} (${gb(DATES_UNSORTED)})`)
 }
