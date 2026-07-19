@@ -1,0 +1,12 @@
+film.film.initial_release_date
+spaceflight.satellite.launch_date
+music.album.release_date
+music.release.release_date
+tv.tv_program.air_date_of_first_episode
+theater.play.date_of_first_performance
+book.written_work.date_of_first_publication
+tv.tv_series_episode.air_date
+organization.organization.date_founded
+theater.theater_production.date_opened
+book.book_edition.publication_date
+astronomy.astronomical_discovery.discovery_date

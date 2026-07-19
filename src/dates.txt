@@ -5,6 +5,7 @@ http://rdf.freebase.com/ns/music.album.release_date
 http://rdf.freebase.com/ns/people.deceased_person.date_of_death
 http://rdf.freebase.com/ns/film.film.release_date_s
 http://rdf.freebase.com/ns/film.film.initial_release_date
+http://rdf.freebase.com/ns/people.person.date_of_birth
 http://rdf.freebase.com/ns/time.event.start_date
 http://rdf.freebase.com/ns/organization.organization.date_founded
 http://rdf.freebase.com/ns/book.written_work.date_of_first_publication
