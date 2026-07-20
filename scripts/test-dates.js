@@ -2,10 +2,10 @@
 //   node scripts/test-dates.js
 import { spawnSync } from 'node:child_process'
 import { existsSync } from 'node:fs'
-import { DATES_PARQUET } from '../config.js'
+import { EVENTS_PARQUET } from '../config.js'
 
-if (!existsSync(DATES_PARQUET)) {
-  console.error(`${DATES_PARQUET} not found — run 'node src/index.js 4' first`)
+if (!existsSync(EVENTS_PARQUET)) {
+  console.error(`${EVENTS_PARQUET} not found — run 'node src/index.js 5' then '6' first`)
   process.exit(1)
 }
 
@@ -16,10 +16,11 @@ const run = (sql) => {
   console.log(`   (${((Date.now() - t) / 1000).toFixed(1)}s)`)
 }
 
-const DATES = `'${DATES_PARQUET}'`
+const DATES = `'${EVENTS_PARQUET}'`
 
 
 
 run(`SELECT * FROM ${DATES}
-  WHERE "date" >= '1986-03' AND "date" < '1986-04' AND subject_name IS NOT  NULL
+  WHERE "date" >= '1986-03' AND "date" < '1986-04' 
   `)
+//AND subject_name IS NOT  NULL

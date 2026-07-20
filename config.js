@@ -8,13 +8,15 @@ export const DUMP = process.env.FLOORBASE_DUMP || resolve(homedir(), 'Desktop/fr
 export const FILTERED = process.env.FLOORBASE_FILTERED || resolve(homedir(), 'Desktop/freebase-filtered.gz')
 export const DATA = process.env.FLOORBASE_DATA || join(ROOT, 'data')
 export const NAMES_FILE = join(DATA, 'wikipedia-names.json')
-export const FACTS_PARQUET = join(DATA, 'facts.parquet')
-export const DATES_PARQUET = join(DATA, 'dates.parquet')
-// pass 4 writes dates unsorted (cheap streaming); pass 5 sorts them into DATES_PARQUET
-export const DATES_UNSORTED = join(DATA, 'dates-unsorted.parquet')
+export const PEOPLE_PARQUET = join(DATA, 'people.parquet')
+export const LOCATIONS_PARQUET = join(DATA, 'locations.parquet')
+export const EVENTS_PARQUET = join(DATA, 'events.parquet')
+// pass 5 writes events unsorted (cheap streaming); pass 6 sorts them into EVENTS_PARQUET
+export const EVENTS_UNSORTED = join(DATA, 'events-unsorted.parquet')
 
 export const EXCLUDE_FILE = join(ROOT, './src/exclude.txt')
-export const INCLUDE_FILE = join(ROOT, './src/include.txt')
+export const PEOPLE_FILE = join(ROOT, './src/people.txt')
+export const LOCATIONS_FILE = join(ROOT, './src/locations.txt')
 export const DATES_FILE = join(ROOT, './src/dates.txt')
 
 export const NS = '<http://rdf.freebase.com/ns/'

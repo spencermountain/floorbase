@@ -1,17 +1,18 @@
-// pass 3 — hand-picked predicates → cleaned 5-column facts.parquet
+// shared pass for the domain tables (people, locations): predicate-prefix
+// selected triples → cleaned 5-column parquet. all the memory rules from
+// shell.js apply: one record per line (sentinel newlines), truncated values,
+// bounded row groups, streamed straight into duckdb.
 import { readFile } from 'node:fs/promises'
-import { ENGLISH_ONLY, FACTS_PARQUET, FILTERED, INCLUDE_FILE, MAX_OBJ_CHARS, NS } from '../config.js'
+import { ENGLISH_ONLY, FILTERED, MAX_OBJ_CHARS, NS } from '../config.js'
 import { duckdbCopy, eachLine, q, streamCmd, writePatterns } from './shell.js'
 import { clip, csv, gb, lines, log, oneLine, unescapeNT } from './util.js'
 
-export async function pass3(names) {
-  log('pass 3 — facts parquet')
-  const prefixes = lines(await readFile(INCLUDE_FILE, 'utf8'))
-  const patFile = await writePatterns('include', prefixes.map((p) => `\t${p}`))
+export async function domainPass({ label, prefixFile, output, names }) {
+  log(`${label} parquet → ${output}`)
+  const prefixes = lines(await readFile(prefixFile, 'utf8'))
+  const patFile = await writePatterns(label, prefixes.map((p) => `\t${p}`))
   const producer = streamCmd(`gzcat ${q(FILTERED)} | rg -a -F -f ${q(patFile)}`)
 
-  // records arrive one-per-line (newlines sentinel-encoded by node), so the
-  // parallel csv reader is safe on the pipe; chr(1) → chr(10) restores them
   const { bw, done } = duckdbCopy(`
 COPY (
   SELECT subject, predicate, replace(object, chr(1), chr(10)) AS object, subject_name, object_name
@@ -19,7 +20,7 @@ COPY (
     columns = {'subject':'VARCHAR','predicate':'VARCHAR','object':'VARCHAR','subject_name':'VARCHAR','object_name':'VARCHAR'},
     header = false, auto_detect = false, delim = ',', quote = '"', escape = '"',
     nullstr = '')
-) TO '${FACTS_PARQUET}' (FORMAT PARQUET, COMPRESSION ZSTD, ROW_GROUP_SIZE_BYTES '64MB');`)
+) TO '${output}' (FORMAT PARQUET, COMPRESSION ZSTD, ROW_GROUP_SIZE_BYTES '64MB');`)
 
   let n = 0
   let kept = 0
@@ -43,7 +44,7 @@ COPY (
         objId = o.slice(NS.length, -1)
         obj = objId
       } else {
-        obj = o.slice(1, -1) // external uri, e.g. official_website
+        obj = o.slice(1, -1) // external uri
       }
     } else if (o.charCodeAt(0) === 34 /* " */) {
       const end = o.lastIndexOf('"')
@@ -67,5 +68,5 @@ COPY (
   await bw.end()
   await done
   if (truncated) log(`  note: ${truncated} object values were longer than ${MAX_OBJ_CHARS} chars and got truncated`)
-  log(`pass 3 done — ${kept} rows → ${FACTS_PARQUET} (${gb(FACTS_PARQUET)})`)
+  log(`${label} done — ${kept} rows → ${output} (${gb(output)})`)
 }

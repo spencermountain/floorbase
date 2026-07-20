@@ -1,0 +1,4 @@
+<http://rdf.freebase.com/ns/location.
+<http://rdf.freebase.com/ns/geography.
+<http://rdf.freebase.com/ns/travel.travel_destination.
+<http://rdf.freebase.com/ns/architecture.structure.

@@ -1,0 +1,15 @@
+<http://rdf.freebase.com/ns/people.
+<http://rdf.freebase.com/ns/government.politician.
+<http://rdf.freebase.com/ns/government.us_president.
+<http://rdf.freebase.com/ns/military.military_person.
+<http://rdf.freebase.com/ns/sports.pro_athlete.
+<http://rdf.freebase.com/ns/celebrities.celebrity.
+<http://rdf.freebase.com/ns/royalty.monarch.
+<http://rdf.freebase.com/ns/book.author.
+<http://rdf.freebase.com/ns/film.actor.
+<http://rdf.freebase.com/ns/film.director.
+<http://rdf.freebase.com/ns/film.producer.
+<http://rdf.freebase.com/ns/film.writer.
+<http://rdf.freebase.com/ns/tv.tv_actor.
+<http://rdf.freebase.com/ns/music.artist.
+<http://rdf.freebase.com/ns/music.composer.
