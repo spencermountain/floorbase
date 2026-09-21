@@ -28,13 +28,17 @@ COPY (
   await eachLine(producer.stdout, (line) => {
     if (++n % 25_000_000 === 0) log(`  …${n / 1e6}m lines scanned, ${(kept / 1e6).toFixed(1)}m kept`)
     const parts = line.split('\t')
-    if (parts.length < 3) return
+    if (parts.length < 3) {
+      return null
+    }
     const p = parts[1]
     let ok = false // rg matched anywhere in the line — confirm it was the predicate column
     for (let i = 0; i < prefixes.length; i++) {
       if (p.startsWith(prefixes[i])) { ok = true; break }
     }
-    if (!ok) return
+    if (!ok) {
+      return null
+    }
 
     const o = parts[2]
     let obj
@@ -48,8 +52,12 @@ COPY (
       }
     } else if (o.charCodeAt(0) === 34 /* " */) {
       const end = o.lastIndexOf('"')
-      if (end < 1) return
-      if (o.charCodeAt(end + 1) === 64 /* @ */ && ENGLISH_ONLY && o.slice(end + 2) !== 'en') return
+      if (end < 1) {
+        return null
+      }
+      if (o.charCodeAt(end + 1) === 64 /* @ */ && ENGLISH_ONLY && o.slice(end + 2) !== 'en') {
+        return null
+      }
       obj = oneLine(unescapeNT(o.slice(1, end))) // drops "..."@lang and "..."^^<xsd:type> cruft
       if (obj.length > MAX_OBJ_CHARS) {
         obj = obj.slice(0, MAX_OBJ_CHARS)

@@ -18,9 +18,13 @@
   "type": "module",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "lint": "eslint ."
   },
   "dependencies": {
     "shelljs": "^0.10.0"
+  },
+  "devDependencies": {
+    "eslint": "10.11.0"
   }
 }

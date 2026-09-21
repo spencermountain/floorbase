@@ -68,6 +68,7 @@ export async function eachLine(stream, fn) {
 
 // batches small writes into ~1mb chunks, honouring backpressure
 export class BufWriter {
+  // eslint-disable-next-line no-bitwise
   constructor(stream, size = 1 << 20) {
     this.stream = stream
     this.size = size

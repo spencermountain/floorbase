@@ -22,11 +22,17 @@ COPY (
   let kept = 0
   await eachLine(producer.stdout, (line) => {
     const parts = line.split('\t')
-    if (parts.length < 3 || !predSet.has(parts[1])) return
+    if (parts.length < 3 || !predSet.has(parts[1])) {
+      return null
+    }
     const o = parts[2]
-    if (o.charCodeAt(0) !== 34 /* " */) return
+    if (o.charCodeAt(0) !== 34 /* " */) {
+      return null
+    }
     const end = o.lastIndexOf('"')
-    if (end < 1) return
+    if (end < 1) {
+      return null
+    }
     if (++kept % 10_000_000 === 0) log(`  …${kept / 1e6}m date rows`)
     const date = o.slice(1, end) // "1969-05-28"^^<xsd:date> → 1969-05-28
     const subj = clip(parts[0])
