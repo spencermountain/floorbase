@@ -5,16 +5,9 @@
   "keywords": [
     "freebase"
   ],
-  "homepage": "https://github.com/spencermountain/floorbase#readme",
-  "bugs": {
-    "url": "https://github.com/spencermountain/floorbase/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/spencermountain/floorbase.git"
-  },
+  "repository": "github:spencermountain/floorbase",
   "license": "MIT",
-  "author": "spencermountain",
+  "author": "Spencer Kelly <spencermountain@gmail.com> (https://spencermountain.dev)",
   "type": "module",
   "main": "src/index.js",
   "scripts": {
