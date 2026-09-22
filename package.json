@@ -2,18 +2,19 @@
   "name": "floorbase",
   "version": "0.0.1",
   "description": "freebase data as a parquet file",
-  "keywords": [
-    "freebase"
-  ],
-  "repository": "github:spencermountain/floorbase",
   "license": "MIT",
+  "repository": "github:spencermountain/floorbase",
   "author": "Spencer Kelly <spencermountain@gmail.com> (https://spencermountain.dev)",
   "type": "module",
-  "main": "src/index.js",
+  "main": "./src/index.js",
+  "sideEffects": false,
   "scripts": {
     "start": "node src/index.js",
     "lint": "eslint ."
   },
+  "keywords": [
+    "freebase"
+  ],
   "dependencies": {
     "shelljs": "^0.10.0"
   },
