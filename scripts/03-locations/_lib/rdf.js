@@ -13,6 +13,13 @@ const parse = (line, predicates) => {
     return null
   }
   const value = raw.trim().replace(/\s+\.$/, '')
+  const property = predicates.get(predicate)
+  if (property === 'type.object.name' && (!value.startsWith('"') || !value.endsWith('"@en'))) {
+    return null
+  }
+  if (property === 'type.object.type' && !value.startsWith(namespace)) {
+    return null
+  }
   let object
   if (value.startsWith('<')) {
     object = value.slice(1, -1).replace(/^http:\/\/rdf.freebase.com\/ns\//, '')

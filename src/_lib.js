@@ -56,6 +56,10 @@ class Query {
       const end = offset + Number(group.num_rows)
       const batch = await parquetReadObjects({ file, metadata, columns: readColumns, rowStart: offset, rowEnd: end })
       for (const row of batch) {
+        // Entity builds store the flexible payload as JSON text in Parquet.
+        if (typeof row.data === 'string') {
+          row.data = JSON.parse(row.data)
+        }
         const matches = filters.every(({ column, value }) => {
           if (typeof value === 'function') {
             return value(row[column])

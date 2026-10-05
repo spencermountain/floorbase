@@ -9,12 +9,12 @@ Install JavaScript dependencies with `pnpm install`. Building requires Node 18+,
 Each numbered script folder owns its `config.js`, implementation and helpers. Edit that folder’s configuration for its paths, exact property whitelist, resource limits, report size and runtime estimate. `00-prepare/config.js` combines the four whitelists; it owns preparation settings. The root `config.js` only re-exports paths for scratch and legacy diagnostics. Your dump defaults to `/Volumes/4TB/data/freebase/freebase-rdf-latest.gz`. Override paths with `FLOORBASE_DUMP`, `FLOORBASE_FILTERED` and `FLOORBASE_DATA`.
 
 ```sh
-pnpm run:prepare    # optional: every slice invokes this automatically
-pnpm run:events
-pnpm run:people
-pnpm run:locations
-pnpm run:wikipedia
-pnpm run:all        # all four, sequentially
+pnpm build:prepare    # optional: every slice invokes this automatically
+pnpm build:events
+pnpm build:people
+pnpm build:locations
+pnpm build:wikipedia
+pnpm build:all        # all four, sequentially
 pnpm scratch       # examples using the configured output directory
 ```
 
@@ -22,26 +22,32 @@ pnpm scratch       # examples using the configured output directory
 | --- | --- | --- |
 | `scripts/00-prepare` | `freebase-filtered.gz` | 60–240 min once; immediate if present |
 | `scripts/01-events` | `data/events.parquet` | 20–90 min |
-| `scripts/02-people` | `data/people.parquet` | 30–120 min |
-| `scripts/03-locations` | `data/locations.parquet` | 20–90 min |
+| `scripts/02-people` | `data/people.parquet` | 60–240 min |
+| `scripts/03-locations` | `data/locations.parquet` | 45–180 min |
 | `scripts/04-wikipedia` | `data/wikipedia.parquet` | 30–120 min |
 
-These are **unbenchmarked wall-clock estimates**, for a roughly 30 GB compressed full dump on a 4–8 core laptop with 16 GB RAM and an SSD. Each slice includes scanning, staging, Parquet writing and the count query; add preparation time if needed. All four take roughly 100–420 minutes after preparation. External hard drives, larger whitelists and limited RAM can take substantially longer. Commands print estimates before work and elapsed slice time afterwards.
+These are **unbenchmarked wall-clock estimates**, for a roughly 30 GB compressed full dump on a 4–8 core laptop with 16 GB RAM and an SSD. Each slice includes scanning, staging, Parquet writing and the count query; add preparation time if needed. All four take roughly 155–630 minutes after preparation. External hard drives, larger whitelists and limited RAM can take substantially longer. Commands print estimates before work and elapsed slice time afterwards.
 
-Preparation retains the union of all configured properties and skips whenever `freebase-filtered.gz` exists. It does not require the raw dump when skipping. If you add properties, move the old filtered file aside and run preparation again; existing caches are trusted and may lack newly selected properties. A temporary gzip is renamed only after a successful scan.
+Preparation retains the union of all configured properties and skips whenever `freebase-filtered.gz` exists. It does not require the raw dump when skipping. If you add properties, move the old filtered file aside and run preparation again; existing caches are trusted and may lack newly selected properties. A temporary gzip is renamed only after a successful scan. The entity rollups require `type.object.name` and `type.object.type`; rebuild older filtered caches before running people or locations. Names increase the staging and join workload.
 
 Slices scan the filtered gzip independently. A temporary CSV and DuckDB spill files live beside the output and are cleaned up after each run. Allow tens of GB of free space (potentially 50–100 GB for staging types, spill and outputs), in addition to the raw dump. DuckDB defaults to 4 GB and four threads. Parquet uses Snappy and 122,880-row groups for direct hyparquet compatibility. A completed file replaces the previous output only after conversion succeeds.
 
-After every build, DuckDB reads the finished Parquet and prints its total row count and property counts in descending order. By default every whitelist entry is shown, including zero counts. Set `REPORT_TOP_K` to a positive integer to shorten the report.
+After every build, DuckDB reads the finished Parquet and prints its total row count and property counts in descending order. By default every whitelist entry is shown, including zero counts. Set `REPORT_TOP_K` to a positive integer to shorten the report. People and location reports count distinct output entities containing each property, including nested compound properties. Builds also report how many typed subjects were excluded for lacking an English name.
 
 ## Data
 
 - **Events:** `subject`, `predicate`, `object`, `date`. Birth/death, event start/end, founding/dissolution, and major publication/release dates. `date` is the original lexical value, also retained in `object`; rows are sorted lexically by date. Partial dates remain strings, and lexical sorting is not a complete historical calendar ordering.
-- **People:** `subject`, `predicate`, `object`. Birth/death, nationality, profession, gender, languages and immediate family links.
-- **Locations:** `subject`, `predicate`, `object`. Containment, capitals, country codes, languages, area, coordinates and population. Geolocation and dated population point to compound-value nodes; the whitelist includes latitude/longitude and number/year properties to follow those references by subject. Shared compound-node properties can also describe non-location entities.
+- **People:** one row per subject with `id`, `name`, `birth_date`, `death_date`, `gender_id`, `birthplace_id`, `nationality_ids`, `profession_ids`, and `data`.
+- **Locations:** one row per subject with `id`, `name`, `latitude`, `longitude`, `area`, `country_code`, `capital_id`, `containedby_ids`, and `data`.
 - **Wikipedia:** only `page_id`, `type`, both strings. One distinct English page ID / Freebase type association per row, joined through the Freebase subject. Only `key/wikipedia.en_id` and `type.object.type` are selected. Titles, other languages, invalid page IDs and pages with no type are excluded. Multiple types produce multiple rows per page. Its property report counts populated output associations, rather than raw source triples.
 
-Selection is by exact property, not entity classification or prefix. Freebase IDs and types are shortened (`m.05bdcg`, `people.person`); literals are decoded and non-English language-tagged values are skipped by default. Entity references remain IDs; names are not joined. The old name-based diagnostic scripts are retained unchanged and do not apply to these new schemas.
+People and locations require explicit `people.person` or `location.location` type membership, respectively, and a nonempty English (`@en`) name. Untagged and other-language names do not qualify. Multiple English names are retained in `data`; the lexically first nonblank name becomes `name`. Compound nodes and unrelated named topics are not emitted as separate rows.
+
+`data` contains all **whitelisted** facts, including the promoted properties, keyed by full property name. Values are deduplicated arrays. Configured compound links expand one hop into `{ id, data }` records; unresolved links remain IDs. Education, employment, residences, family relationships, coordinates, borders and population observations stay nested under their owner. References to other people/locations remain IDs; this does not recursively copy their entire records.
+
+Edit `COLUMNS`, `COMPOUNDS`, `ENTITY_TYPE` and `PROPERTIES` in each build's local configuration. Queryable scalar columns take the minimum value when there are multiple values; list columns preserve all distinct values. Missing columns are null, dates remain strings (including partial dates), and numeric columns use doubles. Coordinates use the same lexically first geolocation node; all geolocations remain in `data`. The payload is JSON text in Parquet, automatically decoded to a JavaScript object by the fluent API.
+
+Freebase IDs and types are shortened (`m.05bdcg`, `people.person`); literals are decoded and non-English language-tagged values are skipped by default. The old triple/name-based diagnostic scripts are retained unchanged and do not apply to the rolled-up schemas.
 
 ## Query
 
@@ -56,12 +62,12 @@ const events = await db.events()
   .select('subject', 'date').limit(10).all()
 
 const people = await db.people()
-  .where('predicate', 'people.person.profession')
-  .select('subject', 'object').limit(10).all()
+  .where('birth_date', date => date?.startsWith('1986'))
+  .select('id', 'name', 'birth_date', 'profession_ids', 'data').limit(10).all()
 
 const locations = await db.locations()
-  .where('predicate', 'location.country.capital')
-  .select('subject', 'object').limit(10).all()
+  .where('latitude', latitude => latitude !== null && latitude > 40)
+  .select('id', 'name', 'latitude', 'longitude', 'data').limit(10).all()
 
 const wikipedia = await db.wikipedia()
   .where('type', 'people.person')
@@ -71,8 +77,8 @@ const wikipedia = await db.wikipedia()
 Queries are immutable. `.where(column, value)` uses strict equality; pass a synchronous predicate function for other comparisons. Repeated filters are ANDed. `.limit(n)` applies after filtering. `.select(...columns)` projects output columns while retaining columns needed by filters during reading.
 
 ```js
-const count = await db.people().where('predicate', 'people.person.profession').count()
-const top = await db.locations().top('predicate', 12) // [{ value, count }]
+const count = await db.people().where('profession_ids', ids => Boolean(ids?.length)).count()
+const top = await db.locations().top('country_code', 12) // [{ value, count }]
 for await (const row of db.wikipedia().where('type', 'people.person').rows()) {
   console.log(row)
 }

@@ -9,13 +9,14 @@
   "main": "./src/index.js",
   "sideEffects": false,
   "scripts": {
-    "run:prepare": "node scripts/00-prepare/run.js",
-    "run:events": "node scripts/01-events/index.js",
-    "run:people": "node scripts/02-people/index.js",
-    "run:locations": "node scripts/03-locations/index.js",
-    "run:wikipedia": "node scripts/04-wikipedia/index.js",
-    "run:all": "pnpm run:events && pnpm run:people && pnpm run:locations && pnpm run:wikipedia",
+    "build:prepare": "node scripts/00-prepare/run.js",
+    "build:events": "node scripts/01-events/index.js",
+    "build:people": "node scripts/02-people/index.js",
+    "build:locations": "node scripts/03-locations/index.js",
+    "build:wikipedia": "node scripts/04-wikipedia/index.js",
+    "build:all": "pnpm build:events && pnpm build:people && pnpm build:locations && pnpm build:wikipedia",
     "scratch": "node scratch.js",
+    "watch": "node scratch.js --watch",
     "lint": "eslint ."
   },
   "keywords": [

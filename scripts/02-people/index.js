@@ -1,9 +1,10 @@
 import { mkdir, mkdtemp, rename, rm } from 'node:fs/promises'
 import { join, dirname } from 'node:path'
-import { FILTERED, OUTPUT, MINUTES, ROW_GROUP_SIZE } from './config.js'
+import { FILTERED, OUTPUT, MINUTES } from './config.js'
 import prepare from '../00-prepare/index.js'
 import { duckdb, sqlString } from './_lib/process.js'
 import { heading, log, estimate, complete } from './_lib/log.js'
+import rollup from './_lib/rollup.js'
 import stage from './_lib/stage.js'
 import report from './_lib/report.js'
 
@@ -21,11 +22,10 @@ const build = async () => {
       columns = {'subject':'VARCHAR','predicate':'VARCHAR','object':'VARCHAR'},
       auto_detect = false, delim = ',', quote = '"', escape = '"',
       nullstr = '\\N', allow_quoted_nulls = false, max_line_size = 16777216)`
-    const query = `SELECT * FROM ${source}`
     const output = join(temp, 'output.parquet')
-    log('Write Parquet · Snappy compression')
-    await duckdb(`COPY (${query}) TO ${sqlString(output)}
-      (FORMAT PARQUET, COMPRESSION SNAPPY, ROW_GROUP_SIZE ${ROW_GROUP_SIZE});`, join(temp, 'spill'))
+    log('Roll up named subjects · expand compound records · write Parquet')
+    const summary = JSON.parse(await duckdb(rollup(source, output), join(temp, 'spill'), true))
+    log(`${summary[0].excluded_without_english_name.toLocaleString('en-US')} subjects excluded without an English name`, { depth: 1, last: true })
     await rename(output, OUTPUT)
     await report(join(temp, 'spill'))
     complete(`Finished in ${((Date.now() - start) / 60000).toFixed(1)} minutes → ${OUTPUT}`)
