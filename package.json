@@ -9,13 +9,20 @@
   "main": "./src/index.js",
   "sideEffects": false,
   "scripts": {
-    "start": "node src/index.js",
+    "run:prepare": "node scripts/00-prepare/run.js",
+    "run:events": "node scripts/01-events/index.js",
+    "run:people": "node scripts/02-people/index.js",
+    "run:locations": "node scripts/03-locations/index.js",
+    "run:wikipedia": "node scripts/04-wikipedia/index.js",
+    "run:all": "pnpm run:events && pnpm run:people && pnpm run:locations && pnpm run:wikipedia",
+    "scratch": "node scratch.js",
     "lint": "eslint ."
   },
   "keywords": [
     "freebase"
   ],
   "dependencies": {
+    "hyparquet": "^1.31.2",
     "shelljs": "^0.10.0"
   },
   "devDependencies": {
