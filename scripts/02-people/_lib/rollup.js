@@ -33,16 +33,25 @@ const rollup = (source, output) => {
   const compoundRules = Object.entries(COMPOUNDS).flatMap(([parent, children]) =>
     children.map((child) => `(${sqlString(parent)}, ${sqlString(child)})`)).join(',')
   return `
-CREATE TEMP TABLE facts AS SELECT DISTINCT * FROM ${source};
+CREATE TEMP VIEW raw AS SELECT * FROM ${source};
 CREATE TEMP TABLE candidates AS
-  SELECT DISTINCT subject AS id FROM facts
+  SELECT DISTINCT subject AS id FROM raw
   WHERE predicate = 'type.object.type' AND object = ${sqlString(ENTITY_TYPE)};
 CREATE TEMP TABLE entities AS
   SELECT candidates.id, min(f.object) AS name FROM candidates
-  JOIN facts f ON f.subject = candidates.id
+  JOIN raw f ON f.subject = candidates.id
   WHERE f.predicate = 'type.object.name' AND length(trim(f.object)) > 0
   GROUP BY candidates.id;
-CREATE TEMP TABLE roots AS SELECT f.* FROM facts f JOIN entities e ON e.id = f.subject;
+-- Materialize only people and their referenced compound facts, not every topic's names/types.
+CREATE TEMP TABLE roots AS SELECT DISTINCT f.* FROM raw f JOIN entities e ON e.id = f.subject;
+CREATE TEMP TABLE facts AS
+  SELECT * FROM roots
+  UNION
+  SELECT child.* FROM raw child
+  JOIN (SELECT DISTINCT r.object AS node, rules.child AS predicate
+    FROM roots r JOIN (VALUES ${compoundRules}) rules(link, child) ON r.predicate = rules.link) refs
+    ON child.subject = refs.node AND child.predicate = refs.predicate;
+DROP VIEW raw;
 CREATE TEMP TABLE compound_values AS
   SELECT DISTINCT r.subject AS owner, r.predicate AS link, r.object AS node,
     child.predicate, child.object
@@ -54,6 +63,9 @@ CREATE TEMP TABLE compounds AS
   FROM (SELECT owner, link, node, predicate, list(object ORDER BY object) AS vals
     FROM compound_values GROUP BY owner, link, node, predicate)
   GROUP BY owner, link, node;
+DROP TABLE compound_values;
+CREATE TEMP TABLE promoted AS SELECT e.id, e.name, ${columns.join(', ')} FROM entities e;
+DROP TABLE facts;
 CREATE TEMP TABLE payloads AS
   SELECT subject,
     to_json(map_from_entries(list(struct_pack(key := predicate, value := vals) ORDER BY predicate))) AS data
@@ -65,8 +77,10 @@ CREATE TEMP TABLE payloads AS
       ON c.owner = r.subject AND c.link = r.predicate AND c.node = r.object
     GROUP BY r.subject, r.predicate
   ) GROUP BY subject;
-COPY (SELECT e.id, e.name, ${columns.join(', ')}, CAST(p.data AS VARCHAR) AS data
-  FROM entities e JOIN payloads p ON p.subject = e.id)
+DROP TABLE roots;
+DROP TABLE compounds;
+COPY (SELECT e.*, CAST(p.data AS VARCHAR) AS data
+  FROM promoted e JOIN payloads p ON p.subject = e.id)
 TO ${sqlString(output)} (FORMAT PARQUET, COMPRESSION SNAPPY, ROW_GROUP_SIZE ${ROW_GROUP_SIZE});
 SELECT (SELECT count(*) FROM candidates) AS candidates,
   (SELECT count(*) FROM candidates) - (SELECT count(*) FROM entities) AS excluded_without_english_name;

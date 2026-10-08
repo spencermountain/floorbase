@@ -1,10 +1,4 @@
-import { fileURLToPath } from 'node:url'
-import { resolve } from 'node:path'
-
-const location = '/Volumes/4TB/data/freebase/'
-const FILTERED = process.env.FLOORBASE_FILTERED || resolve(location, 'freebase-filtered.gz')
-const DATA = process.env.FLOORBASE_DATA || fileURLToPath(new URL('../../data/', import.meta.url))
-const OUTPUT = resolve(DATA, 'events.parquet')
+import { FILTERED, DATA, TEMP_DIRECTORY, MAX_TEMP_DIRECTORY_SIZE, EVENTS_PARQUET as OUTPUT } from '../../config.js'
 
 // Exact predicates observed in samples/top-properties.txt; rebuild the cache after additions.
 // Date-valued properties only: object also becomes the date column.
@@ -52,4 +46,4 @@ const ENGLISH_ONLY = true
 // null shows every whitelisted property, including zero counts.
 const REPORT_TOP_K = null
 
-export { FILTERED, DATA, OUTPUT, PROPERTIES, MINUTES, MEMORY_LIMIT, THREADS, ROW_GROUP_SIZE, ENGLISH_ONLY, REPORT_TOP_K }
+export { TEMP_DIRECTORY, MAX_TEMP_DIRECTORY_SIZE, FILTERED, DATA, OUTPUT, PROPERTIES, MINUTES, MEMORY_LIMIT, THREADS, ROW_GROUP_SIZE, ENGLISH_ONLY, REPORT_TOP_K }

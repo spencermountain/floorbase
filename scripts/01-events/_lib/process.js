@@ -1,7 +1,7 @@
 import { spawn } from 'node:child_process'
 import { createInterface } from 'node:readline'
 import { log } from './log.js'
-import { MEMORY_LIMIT, THREADS } from '../config.js'
+import { MEMORY_LIMIT, THREADS, MAX_TEMP_DIRECTORY_SIZE } from '../config.js'
 
 const quote = (value) => `'${String(value).replaceAll("'", "'\\''")}'`
 const sqlString = (value) => `'${String(value).replaceAll("'", "''")}'`
@@ -28,6 +28,7 @@ const duckdb = (sql, temp, capture = false) => run('duckdb', ['-bail', '-json', 
 SET memory_limit = ${sqlString(MEMORY_LIMIT)};
 SET threads = ${THREADS};
 SET temp_directory = ${sqlString(temp)};
+${MAX_TEMP_DIRECTORY_SIZE ? `SET max_temp_directory_size = ${sqlString(MAX_TEMP_DIRECTORY_SIZE)};` : ''}
 ${sql}`], capture)
 const predicateURI = (property) => {
   if (property.startsWith('key/')) {

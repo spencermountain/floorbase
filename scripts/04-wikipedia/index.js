@@ -1,6 +1,6 @@
 import { mkdir, mkdtemp, rename, rm } from 'node:fs/promises'
 import { join, dirname } from 'node:path'
-import { FILTERED, OUTPUT, MINUTES, ROW_GROUP_SIZE } from './config.js'
+import { FILTERED, OUTPUT, MINUTES, TEMP_DIRECTORY, MAX_TEMP_DIRECTORY_SIZE, ROW_GROUP_SIZE } from './config.js'
 import prepare from '../00-prepare/index.js'
 import { duckdb, sqlString } from './_lib/process.js'
 import { heading, log, estimate, complete } from './_lib/log.js'
@@ -14,9 +14,14 @@ const build = async () => {
   const start = Date.now()
   await mkdir(dirname(OUTPUT), { recursive: true })
   const temp = await mkdtemp(join(dirname(OUTPUT), '.wikipedia-'))
+  let work = temp
   try {
+    await mkdir(TEMP_DIRECTORY, { recursive: true })
+    work = await mkdtemp(join(TEMP_DIRECTORY, '.wikipedia-work-'))
+    log(`Temporary data: ${work}`)
+    log(`Spill limit: ${MAX_TEMP_DIRECTORY_SIZE || 'DuckDB automatic (available disk space)'}`, { depth: 1, last: true })
     log('Scan filtered dump → temporary CSV')
-    const csvFile = await stage(temp)
+    const csvFile = await stage(work)
     const source = `read_csv(${sqlString(csvFile)}, header = true,
       columns = {'subject':'VARCHAR','predicate':'VARCHAR','object':'VARCHAR'},
       auto_detect = false, delim = ',', quote = '"', escape = '"',
@@ -30,11 +35,14 @@ const build = async () => {
     const output = join(temp, 'output.parquet')
     log('Write Parquet · Snappy compression')
     await duckdb(`COPY (${query}) TO ${sqlString(output)}
-      (FORMAT PARQUET, COMPRESSION SNAPPY, ROW_GROUP_SIZE ${ROW_GROUP_SIZE});`, join(temp, 'spill'))
+      (FORMAT PARQUET, COMPRESSION SNAPPY, ROW_GROUP_SIZE ${ROW_GROUP_SIZE});`, join(work, 'spill'))
     await rename(output, OUTPUT)
-    await report(join(temp, 'spill'))
+    await report(join(work, 'spill'))
     complete(`Finished in ${((Date.now() - start) / 60000).toFixed(1)} minutes → ${OUTPUT}`)
   } finally {
+    if (work !== temp) {
+      await rm(work, { recursive: true, force: true })
+    }
     await rm(temp, { recursive: true, force: true })
   }
 }
