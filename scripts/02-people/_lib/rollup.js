@@ -1,5 +1,8 @@
 import { ENTITY_TYPE, COMPOUNDS, COLUMNS, PROPERTIES, ROW_GROUP_SIZE } from '../config.js'
-import { sqlString } from './process.js'
+import { join } from 'node:path'
+import { rm } from 'node:fs/promises'
+import { duckdb, sqlString } from './process.js'
+import { log } from './log.js'
 
 const identifier = (value) => `"${value.replaceAll('"', '""')}"`
 const columnSQL = ([name, { path, multiple = false, numeric = false }]) => {
@@ -28,26 +31,37 @@ const columnSQL = ([name, { path, multiple = false, numeric = false }]) => {
   return `(SELECT ${aggregate} FROM ${source} WHERE ${condition}) AS ${identifier(name)}`
 }
 
-const rollup = (source, output) => {
+const csvSource = (path) => `read_csv(${sqlString(path)}, header = true,
+  columns = {'subject':'VARCHAR','predicate':'VARCHAR','object':'VARCHAR'},
+  auto_detect = false, delim = ',', quote = '"', escape = '"',
+  nullstr = '\\N', allow_quoted_nulls = false, max_line_size = 16777216, buffer_size = 33554432)`
+
+const rollup = async (staged, output, work) => {
+  const spill = join(work, 'spill')
   const columns = Object.entries(COLUMNS).map(columnSQL)
   const compoundRules = Object.entries(COMPOUNDS).flatMap(([parent, children]) =>
     children.map((child) => `(${sqlString(parent)}, ${sqlString(child)})`)).join(',')
-  return `
-CREATE TEMP VIEW raw AS SELECT * FROM ${source};
-CREATE TEMP TABLE candidates AS
-  SELECT DISTINCT subject AS id FROM raw
+  const children = join(work, 'children.parquet')
+  log('Stream compound facts → Parquet (no joins or aggregation)')
+  await duckdb(`COPY (SELECT * FROM ${csvSource(staged.children)}) TO ${sqlString(children)}
+    (FORMAT PARQUET, COMPRESSION SNAPPY, ROW_GROUP_SIZE ${ROW_GROUP_SIZE});`, spill)
+  await rm(staged.children)
+  const summary = [{ candidates: 0, excluded_without_english_name: 0 }]
+  // Partitioning precedes every join, sort and aggregation. Each process handles one bucket.
+  for (let bucket = 0; bucket < staged.buckets.length; bucket++) {
+    log(`Select and roll up batch ${bucket + 1}/${staged.buckets.length}`, { depth: 1 })
+    const part = join(work, `part-${bucket}.parquet`)
+    const stats = JSON.parse(await duckdb(`
+CREATE TEMP VIEW raw AS SELECT * FROM ${csvSource(staged.buckets[bucket])};
+CREATE TEMP TABLE candidates AS SELECT DISTINCT subject AS id FROM raw
   WHERE predicate = 'type.object.type' AND object = ${sqlString(ENTITY_TYPE)};
-CREATE TEMP TABLE entities AS
-  SELECT candidates.id, min(f.object) AS name FROM candidates
-  JOIN raw f ON f.subject = candidates.id
-  WHERE f.predicate = 'type.object.name' AND length(trim(f.object)) > 0
-  GROUP BY candidates.id;
--- Materialize only people and their referenced compound facts, not every topic's names/types.
-CREATE TEMP TABLE roots AS SELECT DISTINCT f.* FROM raw f JOIN entities e ON e.id = f.subject;
-CREATE TEMP TABLE facts AS
-  SELECT * FROM roots
+CREATE TEMP TABLE entities AS SELECT c.id, min(r.object) AS name
+  FROM candidates c JOIN raw r ON r.subject = c.id
+  WHERE r.predicate = 'type.object.name' AND length(trim(r.object)) > 0 GROUP BY c.id;
+CREATE TEMP TABLE roots AS SELECT DISTINCT r.* FROM raw r JOIN entities e ON e.id = r.subject;
+CREATE TEMP TABLE facts AS SELECT * FROM roots
   UNION
-  SELECT child.* FROM raw child
+  SELECT child.* FROM read_parquet(${sqlString(children)}) child
   JOIN (SELECT DISTINCT r.object AS node, rules.child AS predicate
     FROM roots r JOIN (VALUES ${compoundRules}) rules(link, child) ON r.predicate = rules.link) refs
     ON child.subject = refs.node AND child.predicate = refs.predicate;
@@ -81,10 +95,18 @@ DROP TABLE roots;
 DROP TABLE compounds;
 COPY (SELECT e.*, CAST(p.data AS VARCHAR) AS data
   FROM promoted e JOIN payloads p ON p.subject = e.id)
-TO ${sqlString(output)} (FORMAT PARQUET, COMPRESSION SNAPPY, ROW_GROUP_SIZE ${ROW_GROUP_SIZE});
+TO ${sqlString(part)} (FORMAT PARQUET, COMPRESSION SNAPPY, ROW_GROUP_SIZE ${ROW_GROUP_SIZE});
 SELECT (SELECT count(*) FROM candidates) AS candidates,
   (SELECT count(*) FROM candidates) - (SELECT count(*) FROM entities) AS excluded_without_english_name;
-`
+`, spill, true))
+    summary[0].candidates += stats[0].candidates
+    summary[0].excluded_without_english_name += stats[0].excluded_without_english_name
+    await rm(staged.buckets[bucket])
+  }
+  log('Combine completed batches → final Parquet')
+  await duckdb(`COPY (SELECT * FROM read_parquet(${sqlString(join(work, 'part-*.parquet'))}))
+    TO ${sqlString(output)} (FORMAT PARQUET, COMPRESSION SNAPPY, ROW_GROUP_SIZE ${ROW_GROUP_SIZE});`, spill)
+  return summary
 }
 
 export default rollup

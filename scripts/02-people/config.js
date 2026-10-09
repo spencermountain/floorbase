@@ -66,11 +66,13 @@ const COLUMNS = {
 
 // Full dump on a 4–8 core laptop, 16 GB RAM, SSD; unbenchmarked minutes.
 const MINUTES = [60, 240]
-const MEMORY_LIMIT = '4GB'
-const THREADS = 4
+const MEMORY_LIMIT = process.env.FLOORBASE_PEOPLE_MEMORY || '4GB'
+// Bound list/JSON aggregation to a small fraction of people at a time.
+const BATCH_COUNT = Number(process.env.FLOORBASE_PEOPLE_BATCHES || 256)
+const THREADS = 2
 const ROW_GROUP_SIZE = 122880
 const ENGLISH_ONLY = true
 // null shows every whitelisted property, including zero counts.
 const REPORT_TOP_K = null
 
-export { TEMP_DIRECTORY, MAX_TEMP_DIRECTORY_SIZE, ENTITY_TYPE, COMPOUNDS, COLUMNS, FILTERED, DATA, OUTPUT, PROPERTIES, MINUTES, MEMORY_LIMIT, THREADS, ROW_GROUP_SIZE, ENGLISH_ONLY, REPORT_TOP_K }
+export { BATCH_COUNT, TEMP_DIRECTORY, MAX_TEMP_DIRECTORY_SIZE, ENTITY_TYPE, COMPOUNDS, COLUMNS, FILTERED, DATA, OUTPUT, PROPERTIES, MINUTES, MEMORY_LIMIT, THREADS, ROW_GROUP_SIZE, ENGLISH_ONLY, REPORT_TOP_K }

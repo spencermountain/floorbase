@@ -24,7 +24,7 @@ const run = (command, args, capture = false) => new Promise((resolve, reject) =>
     }
   })
 })
-const duckdb = (sql, temp, capture = false) => run('duckdb', ['-bail', '-json', '-c', `
+const duckdb = (sql, temp, capture = false, database = ':memory:') => run('duckdb', [database, '-bail', '-json', '-c', `
 SET memory_limit = ${sqlString(MEMORY_LIMIT)};
 SET threads = ${THREADS};
 SET preserve_insertion_order = false;
